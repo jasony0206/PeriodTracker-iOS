@@ -8,7 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ProfileViewController: UIViewController {
+    
+    // MARK: Properties
+    var dates = [NSDate]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +24,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func unwindToProfile(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? AddPeriodViewController,
+            newDate: NSDate = sourceViewController.date as NSDate {
+            dates.append(newDate)
+        }
+    }
 }
 

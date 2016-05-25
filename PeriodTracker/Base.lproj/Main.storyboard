@@ -9,7 +9,7 @@
         <!--Your Profile-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ProfileViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -76,7 +76,7 @@
         <!--Add Period-->
         <scene sceneID="nP3-bh-65q">
             <objects>
-                <viewController id="6Eb-22-bdc" sceneMemberID="viewController">
+                <viewController id="6Eb-22-bdc" customClass="AddPeriodViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="APv-Mv-4Ua"/>
                         <viewControllerLayoutGuide type="bottom" id="eE5-cv-5dt"/>
@@ -122,6 +122,10 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="TIa-Qt-PUP"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="datePicker" destination="6eZ-qT-P9b" id="Uu6-AZ-3vD"/>
+                        <outlet property="saveButton" destination="TIa-Qt-PUP" id="YEV-ge-JxR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F1C-ei-BUE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
