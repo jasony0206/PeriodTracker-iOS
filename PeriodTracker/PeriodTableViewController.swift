@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol ChangeMemberDelegate {
+    func updateDates(viewController: PeriodTableViewController, updatedDates: [NSDate])
+}
+
 class PeriodTableViewController: UITableViewController {
     
     // MARK: Properties
     var dates = [NSDate]()
+    var delegate: ChangeMemberDelegate? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +69,7 @@ class PeriodTableViewController: UITableViewController {
             // Delete the row from the data source
             dates.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            delegate?.updateDates(self, updatedDates: dates)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    

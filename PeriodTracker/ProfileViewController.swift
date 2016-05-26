@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, ChangeMemberDelegate {
     
     // MARK: Properties
     var dates = [NSDate]()
@@ -29,6 +29,20 @@ class ProfileViewController: UIViewController {
         if let sourceViewController = sender.sourceViewController as? AddPeriodViewController,
         newDate: NSDate = sourceViewController.pickedDate as NSDate {
             dates.append(newDate)
+            updateProfile()
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "DateListSegue") {
+            let detailVC = segue.destinationViewController as! PeriodTableViewController;
+            detailVC.delegate = self
+            detailVC.dates = self.dates
+        }
+    }
+    
+    func updateProfile() {
+        if dates.count >= 1 {
             dates.sortInPlace({ $0.compare($1) == NSComparisonResult.OrderedDescending })
             
             // Update last period
@@ -49,19 +63,21 @@ class ProfileViewController: UIViewController {
             
             // Update next period
             let nextPeriodDate = NSCalendar.currentCalendar().dateByAddingUnit(
-                                    .Day,
-                                    value: avgCycleLength,
-                                    toDate: lastPeriodDate,
-                                    options: NSCalendarOptions(rawValue: 0))
+                .Day,
+                value: avgCycleLength,
+                toDate: lastPeriodDate,
+                options: NSCalendarOptions(rawValue: 0))
             nextPeriod.text = dateToString(nextPeriodDate!)
+        } else {
+            lastPeriod.text = "?"
+            avgCycle.text = "28 days"
+            nextPeriod.text = "?"
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "DateListSegue") {
-            let detailVC = segue.destinationViewController as! PeriodTableViewController;
-            detailVC.dates = self.dates
-        }
+    func updateDates(viewController: PeriodTableViewController, updatedDates: [NSDate]) {
+        self.dates = updatedDates
+        updateProfile()
     }
     
     func dateToString(date: NSDate) -> String {
