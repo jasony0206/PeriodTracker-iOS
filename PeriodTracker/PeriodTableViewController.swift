@@ -15,14 +15,6 @@ class PeriodTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        let newDate = NSDate()
-        self.dates.append(newDate)
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +31,6 @@ class PeriodTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dates.count
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "PeriodTableViewCell"
@@ -47,9 +38,16 @@ class PeriodTableViewController: UITableViewController {
 
         // Configure the cell...
         let date = dates[indexPath.row]
-        cell.textLabel!.text = "123"
+        cell.textLabel!.text = dateToString(date)
 
         return cell
+    }
+    
+    func dateToString(date: NSDate) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        let strDate = dateFormatter.stringFromDate(date)
+        return strDate
     }
     
     /*

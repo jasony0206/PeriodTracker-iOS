@@ -34,6 +34,13 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "dateListSegue") {
+            let detailVC = segue.destinationViewController as! PeriodTableViewController;
+            detailVC.dates = self.dates
+        }
+    }
+    
     func dateToString(date: NSDate) -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"

@@ -56,7 +56,7 @@
                                 <rect key="frame" x="50" y="224" width="121" height="30"/>
                                 <state key="normal" title="Past period dates"/>
                                 <connections>
-                                    <segue destination="PXm-cX-zT9" kind="show" id="58K-n0-Zp8"/>
+                                    <segue destination="PXm-cX-zT9" kind="show" identifier="dateListSegue" id="58K-n0-Zp8"/>
                                 </connections>
                             </button>
                         </subviews>
