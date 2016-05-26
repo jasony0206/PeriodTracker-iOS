@@ -11,7 +11,7 @@ import UIKit
 class AddPeriodViewController: UIViewController {
     
     // MARK: Properties
-    var date: NSDate = NSDate()
+    var pickedDate: NSDate = NSDate()
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var saveButton: UIBarButtonItem!
 
@@ -36,7 +36,7 @@ class AddPeriodViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if sender === saveButton {
-            date = datePicker.date
+            pickedDate = datePicker.date
         }
     }
 }

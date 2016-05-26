@@ -17,7 +17,6 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         //self.view.backgroundColor = UIColor.redColor();
     }
 
@@ -28,9 +27,10 @@ class ProfileViewController: UIViewController {
 
     @IBAction func unwindToProfile(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? AddPeriodViewController,
-        newDate: NSDate = sourceViewController.date as NSDate {
+        newDate: NSDate = sourceViewController.pickedDate as NSDate {
             dates.append(newDate)
-            lastPeriod.text = dateToString(newDate)
+            dates.sortInPlace({ $0.compare($1) == NSComparisonResult.OrderedDescending })
+            lastPeriod.text = dateToString(dates[0])
         }
     }
     
