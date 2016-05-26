@@ -30,7 +30,20 @@ class ProfileViewController: UIViewController {
         newDate: NSDate = sourceViewController.pickedDate as NSDate {
             dates.append(newDate)
             dates.sortInPlace({ $0.compare($1) == NSComparisonResult.OrderedDescending })
-            lastPeriod.text = dateToString(dates[0])
+            
+            // Update last period
+            let lastPeriodDate = dates[0]
+            lastPeriod.text = dateToString(lastPeriodDate)
+            
+            // Update average cycle
+            if dates.count >= 2 {
+                var sum = 0
+                for i in 0..<(dates.count - 1) {
+                    let cycleLength = dates[i + 1].numberOfDaysUntilDateTime(dates[i])
+                    sum += cycleLength
+                }
+                avgCycle.text = String(sum / (dates.count - 1))
+            }
         }
     }
     
@@ -46,6 +59,23 @@ class ProfileViewController: UIViewController {
         dateFormatter.dateFormat = "MM/dd/yyyy"
         let strDate = dateFormatter.stringFromDate(date)
         return strDate
+    }
+}
+
+extension NSDate {
+    func numberOfDaysUntilDateTime(toDateTime: NSDate, inTimeZone timeZone: NSTimeZone? = nil) -> Int {
+        let calendar = NSCalendar.currentCalendar()
+        if let timeZone = timeZone {
+            calendar.timeZone = timeZone
+        }
+        
+        var fromDate: NSDate?, toDate: NSDate?
+        
+        calendar.rangeOfUnit(.Day, startDate: &fromDate, interval: nil, forDate: self)
+        calendar.rangeOfUnit(.Day, startDate: &toDate, interval: nil, forDate: toDateTime)
+        
+        let difference = calendar.components(.Day, fromDate: fromDate!, toDate: toDate!, options: [])
+        return difference.day
     }
 }
 
