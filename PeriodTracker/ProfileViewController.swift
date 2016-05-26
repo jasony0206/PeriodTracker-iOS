@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     var dates = [NSDate]()
     @IBOutlet weak var avgCycle: UILabel!
     @IBOutlet weak var lastPeriod: UILabel!
+    @IBOutlet weak var nextPeriod: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,6 @@ class ProfileViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func unwindToProfile(sender: UIStoryboardSegue) {
@@ -36,14 +36,24 @@ class ProfileViewController: UIViewController {
             lastPeriod.text = dateToString(lastPeriodDate)
             
             // Update average cycle
+            var avgCycleLength = 28
             if dates.count >= 2 {
                 var sum = 0
                 for i in 0..<(dates.count - 1) {
                     let cycleLength = dates[i + 1].numberOfDaysUntilDateTime(dates[i])
                     sum += cycleLength
                 }
-                avgCycle.text = String(sum / (dates.count - 1))
+                avgCycleLength = sum / (dates.count - 1)
             }
+            avgCycle.text = "\(avgCycleLength) days"
+            
+            // Update next period
+            let nextPeriodDate = NSCalendar.currentCalendar().dateByAddingUnit(
+                                    .Day,
+                                    value: avgCycleLength,
+                                    toDate: lastPeriodDate,
+                                    options: NSCalendarOptions(rawValue: 0))
+            nextPeriod.text = dateToString(nextPeriodDate!)
         }
     }
     
