@@ -19,16 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="I71-Dx-6Yb">
-                                <rect key="frame" x="50" y="109" width="109.5" height="56"/>
+                                <rect key="frame" x="50" y="109" width="110" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Cycle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBQ-x7-Tjv">
-                                        <rect key="frame" x="0.0" y="0.0" width="109.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGq-93-AEz">
-                                        <rect key="frame" x="34" y="35.5" width="42" height="20.5"/>
+                                        <rect key="frame" x="34" y="36" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -36,22 +36,29 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6rW-O6-jxR">
-                                <rect key="frame" x="463.5" y="109" width="86.5" height="56"/>
+                                <rect key="frame" x="464" y="109" width="87" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Period" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdL-Fv-xrD">
-                                        <rect key="frame" x="0.0" y="0.0" width="86.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="87" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKu-Ka-e1r">
-                                        <rect key="frame" x="22.5" y="35.5" width="42" height="20.5"/>
+                                        <rect key="frame" x="23" y="36" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P42-vr-Kbk">
+                                <rect key="frame" x="50" y="224" width="121" height="30"/>
+                                <state key="normal" title="Past period dates"/>
+                                <connections>
+                                    <segue destination="PXm-cX-zT9" kind="show" id="58K-n0-Zp8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -76,6 +83,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1177" y="1035"/>
+        </scene>
+        <!--Period List-->
+        <scene sceneID="ykS-M9-emf">
+            <objects>
+                <tableViewController id="PXm-cX-zT9" customClass="PeriodTableViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tHm-qf-m9f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PeriodTableViewCell" id="pr0-OW-Fxp">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pr0-OW-Fxp" id="OgK-pg-MTE">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PXm-cX-zT9" id="JTI-5f-nUb"/>
+                            <outlet property="delegate" destination="PXm-cX-zT9" id="2Fj-Ny-LM4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Period List" id="cQV-Rv-ma0"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a6n-oP-DCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1177" y="1780"/>
         </scene>
         <!--Add Period-->
         <scene sceneID="nP3-bh-65q">
@@ -118,9 +154,7 @@
                             <constraint firstItem="eYO-UI-rcK" firstAttribute="leading" secondItem="7og-pu-VhA" secondAttribute="leadingMargin" id="vWG-gL-fzI"/>
                         </constraints>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="lLQ-iL-1Gh"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Period" id="qgS-vY-QlR">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1MJ-dC-595">
                             <connections>
