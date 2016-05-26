@@ -58,7 +58,7 @@ class ProfileViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "dateListSegue") {
+        if (segue.identifier == "DateListSegue") {
             let detailVC = segue.destinationViewController as! PeriodTableViewController;
             detailVC.dates = self.dates
         }
