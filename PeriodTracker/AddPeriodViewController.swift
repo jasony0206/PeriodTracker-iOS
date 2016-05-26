@@ -27,6 +27,9 @@ class AddPeriodViewController: UIViewController {
     }
     
     // MARK: Navigation
+    @IBAction func cancel(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -34,7 +37,6 @@ class AddPeriodViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if sender === saveButton {
             date = datePicker.date
-            
         }
     }
 }

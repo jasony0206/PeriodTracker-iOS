@@ -122,7 +122,11 @@
                         <barButtonItem title="Item" id="lLQ-iL-1Gh"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Add Period" id="qgS-vY-QlR">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1MJ-dC-595"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1MJ-dC-595">
+                            <connections>
+                                <action selector="cancel:" destination="6Eb-22-bdc" id="5RA-gx-7ze"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="TIa-Qt-PUP">
                             <connections>
                                 <segue destination="pTL-8o-EJu" kind="unwind" unwindAction="unwindToProfile:" id="n2R-s9-QYH"/>
