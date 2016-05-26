@@ -12,6 +12,8 @@ class ProfileViewController: UIViewController {
     
     // MARK: Properties
     var dates = [NSDate]()
+    @IBOutlet weak var avgCycle: UILabel!
+    @IBOutlet weak var lastPeriod: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +28,17 @@ class ProfileViewController: UIViewController {
 
     @IBAction func unwindToProfile(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? AddPeriodViewController,
-            newDate: NSDate = sourceViewController.date as NSDate {
+        newDate: NSDate = sourceViewController.date as NSDate {
             dates.append(newDate)
+            lastPeriod.text = dateToString(newDate)
         }
+    }
+    
+    func dateToString(date: NSDate) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        let strDate = dateFormatter.stringFromDate(date)
+        return strDate
     }
 }
 
