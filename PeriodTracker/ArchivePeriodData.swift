@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ArchiveData : NSObject, NSCoding {
+class ArchivePeriodData : NSObject, NSCoding {
     // MARK: Properties
     var dates: [NSDate]
     var avgCycle: Int

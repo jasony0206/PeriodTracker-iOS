@@ -12,6 +12,9 @@ class ProfileViewController: UIViewController, ChangeMemberDelegate {
     
     // MARK: Properties
     var dates = [NSDate]()
+    var avgCycle = 28
+    var lastPeriod: NSDate = NSDate()
+    var nextPeriod: NSDate = NSDate()
     @IBOutlet weak var avgCycleLabel: UILabel!
     @IBOutlet weak var lastPeriodLabel: UILabel!
     @IBOutlet weak var nextPeriodLabel: UILabel!
@@ -46,33 +49,34 @@ class ProfileViewController: UIViewController, ChangeMemberDelegate {
             dates.sortInPlace({ $0.compare($1) == NSComparisonResult.OrderedDescending })
             
             // Update last period
-            let lastPeriodDate = dates[0]
-            lastPeriodLabel.text = dateToString(lastPeriodDate)
+            lastPeriod = dates[0]
+            lastPeriodLabel.text = dateToString(lastPeriod)
             
             // Update average cycle
-            var avgCycleLength = 28
+            //var avgCycleLength = 28
             if dates.count >= 2 {
                 var sum = 0
                 for i in 0..<(dates.count - 1) {
                     let cycleLength = dates[i + 1].numberOfDaysUntilDateTime(dates[i])
                     sum += cycleLength
                 }
-                avgCycleLength = sum / (dates.count - 1)
+                avgCycle = sum / (dates.count - 1)
             }
-            avgCycleLabel.text = "\(avgCycleLength) days"
+            avgCycleLabel.text = "\(avgCycle) days"
             
             // Update next period
-            let nextPeriodDate = NSCalendar.currentCalendar().dateByAddingUnit(
+            nextPeriod = NSCalendar.currentCalendar().dateByAddingUnit(
                 .Day,
-                value: avgCycleLength,
-                toDate: lastPeriodDate,
-                options: NSCalendarOptions(rawValue: 0))
-            nextPeriodLabel.text = dateToString(nextPeriodDate!)
+                value: avgCycle,
+                toDate: lastPeriod,
+                options: NSCalendarOptions(rawValue: 0))!
+            nextPeriodLabel.text = dateToString(nextPeriod)
         } else {
             lastPeriodLabel.text = "?"
             avgCycleLabel.text = "28 days"
             nextPeriodLabel.text = "?"
         }
+        saveData()
     }
     
     func updateDates(viewController: PeriodTableViewController, updatedDates: [NSDate]) {
@@ -85,6 +89,19 @@ class ProfileViewController: UIViewController, ChangeMemberDelegate {
         dateFormatter.dateFormat = "MM/dd/yyyy"
         let strDate = dateFormatter.stringFromDate(date)
         return strDate
+    }
+    
+    // MARK: NSCoding
+    func saveData() {
+        let data = ArchivePeriodData(dates: dates, avgCycle: avgCycle, lastPeriod: lastPeriod, nextPeriod: nextPeriod)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(data, toFile: ArchivePeriodData.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save period data...")
+        }
+    }
+    
+    func loadData() -> ArchivePeriodData? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(ArchivePeriodData.ArchiveURL.path!) as? ArchivePeriodData
     }
 }
 
