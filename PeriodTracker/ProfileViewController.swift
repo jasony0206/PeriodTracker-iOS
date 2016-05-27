@@ -12,10 +12,10 @@ class ProfileViewController: UIViewController, ChangeMemberDelegate {
     
     // MARK: Properties
     var dates = [NSDate]()
-    @IBOutlet weak var avgCycle: UILabel!
-    @IBOutlet weak var lastPeriod: UILabel!
-    @IBOutlet weak var nextPeriod: UILabel!
-
+    @IBOutlet weak var avgCycleLabel: UILabel!
+    @IBOutlet weak var lastPeriodLabel: UILabel!
+    @IBOutlet weak var nextPeriodLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.view.backgroundColor = UIColor.redColor();
@@ -47,7 +47,7 @@ class ProfileViewController: UIViewController, ChangeMemberDelegate {
             
             // Update last period
             let lastPeriodDate = dates[0]
-            lastPeriod.text = dateToString(lastPeriodDate)
+            lastPeriodLabel.text = dateToString(lastPeriodDate)
             
             // Update average cycle
             var avgCycleLength = 28
@@ -59,7 +59,7 @@ class ProfileViewController: UIViewController, ChangeMemberDelegate {
                 }
                 avgCycleLength = sum / (dates.count - 1)
             }
-            avgCycle.text = "\(avgCycleLength) days"
+            avgCycleLabel.text = "\(avgCycleLength) days"
             
             // Update next period
             let nextPeriodDate = NSCalendar.currentCalendar().dateByAddingUnit(
@@ -67,11 +67,11 @@ class ProfileViewController: UIViewController, ChangeMemberDelegate {
                 value: avgCycleLength,
                 toDate: lastPeriodDate,
                 options: NSCalendarOptions(rawValue: 0))
-            nextPeriod.text = dateToString(nextPeriodDate!)
+            nextPeriodLabel.text = dateToString(nextPeriodDate!)
         } else {
-            lastPeriod.text = "?"
-            avgCycle.text = "28 days"
-            nextPeriod.text = "?"
+            lastPeriodLabel.text = "?"
+            avgCycleLabel.text = "28 days"
+            nextPeriodLabel.text = "?"
         }
     }
     
