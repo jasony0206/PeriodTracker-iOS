@@ -22,6 +22,19 @@ class ProfileViewController: UIViewController, ChangeMemberDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.view.backgroundColor = UIColor.redColor();
+        
+        // Load any saved data, otherwise properly initialize
+        if let savedData = loadData() {
+            self.dates = savedData.dates
+            self.avgCycle = savedData.avgCycle
+            self.lastPeriod = savedData.lastPeriod
+            self.nextPeriod = savedData.nextPeriod
+            updateProfile()
+        } else {
+            lastPeriodLabel.text = "?"
+            avgCycleLabel.text = "28 days"
+            nextPeriodLabel.text = "?"
+        }
     }
 
     override func didReceiveMemoryWarning() {
