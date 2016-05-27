@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5803ED731CF7C6C8004ADCF0 /* ArchivePeriodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5803ED721CF7C6C8004ADCF0 /* ArchivePeriodData.swift */; };
 		583F47141CF6A48400BC95EF /* PeriodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583F47131CF6A48400BC95EF /* PeriodTableViewController.swift */; };
 		5892E27B1CF63EE900200DBA /* AddPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5892E27A1CF63EE900200DBA /* AddPeriodViewController.swift */; };
 		58DF71D11CF39D11004FEB19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DF71D01CF39D11004FEB19 /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5803ED721CF7C6C8004ADCF0 /* ArchivePeriodData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchivePeriodData.swift; sourceTree = "<group>"; };
 		583F47131CF6A48400BC95EF /* PeriodTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodTableViewController.swift; sourceTree = "<group>"; };
 		5892E27A1CF63EE900200DBA /* AddPeriodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPeriodViewController.swift; sourceTree = "<group>"; };
 		58DF71CD1CF39D11004FEB19 /* PeriodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeriodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +88,7 @@
 				5892E27A1CF63EE900200DBA /* AddPeriodViewController.swift */,
 				583F47131CF6A48400BC95EF /* PeriodTableViewController.swift */,
 				58DF71D41CF39D11004FEB19 /* Main.storyboard */,
+				5803ED721CF7C6C8004ADCF0 /* ArchivePeriodData.swift */,
 				58DF71D71CF39D11004FEB19 /* Assets.xcassets */,
 				58DF71D91CF39D11004FEB19 /* LaunchScreen.storyboard */,
 				58DF71DC1CF39D11004FEB19 /* Info.plist */,
@@ -206,6 +209,7 @@
 				583F47141CF6A48400BC95EF /* PeriodTableViewController.swift in Sources */,
 				58DF71D31CF39D11004FEB19 /* ProfileViewController.swift in Sources */,
 				5892E27B1CF63EE900200DBA /* AddPeriodViewController.swift in Sources */,
+				5803ED731CF7C6C8004ADCF0 /* ArchivePeriodData.swift in Sources */,
 				58DF71D11CF39D11004FEB19 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
