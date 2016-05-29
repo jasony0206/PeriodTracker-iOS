@@ -196,9 +196,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5KE-P7-uZG" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MO0-Dl-QJ0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="MO0-Dl-QJ0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.70629541568011756" green="0.76971189979755794" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -214,9 +215,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bwj-iJ-NQl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7CK-Ys-woQ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="7CK-Ys-woQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.70629541569999998" green="0.76971189979999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
