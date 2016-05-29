@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController, ChangeMemberDelegate {
     @IBOutlet weak var avgCycleLabel: UILabel!
     @IBOutlet weak var lastPeriodLabel: UILabel!
     @IBOutlet weak var nextPeriodLabel: UILabel!
+    @IBOutlet weak var detailsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,7 @@ class ProfileViewController: UIViewController, ChangeMemberDelegate {
             avgCycleLabel.text = "28 days"
             nextPeriodLabel.text = "?"
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,6 +106,8 @@ class ProfileViewController: UIViewController, ChangeMemberDelegate {
         return strDate
     }
     
+    
+    
     // MARK: NSCoding
     func saveData() {
         let data = ArchivePeriodData(dates: dates, avgCycle: avgCycle, lastPeriod: lastPeriod, nextPeriod: nextPeriod)
@@ -116,6 +120,11 @@ class ProfileViewController: UIViewController, ChangeMemberDelegate {
     func loadData() -> ArchivePeriodData? {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(ArchivePeriodData.ArchiveURL.path!) as? ArchivePeriodData
     }
+    
+    
+    
+    // MARK: TableView
+    
 }
 
 extension NSDate {

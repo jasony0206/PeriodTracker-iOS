@@ -53,7 +53,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P42-vr-Kbk">
-                                <rect key="frame" x="50" y="417" width="121" height="30"/>
+                                <rect key="frame" x="50" y="322" width="121" height="30"/>
                                 <state key="normal" title="Past period dates"/>
                                 <connections>
                                     <segue destination="PXm-cX-zT9" kind="show" identifier="DateListSegue" id="58K-n0-Zp8"/>
@@ -71,6 +71,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QDx-gg-Y04">
+                                <rect key="frame" x="50" y="360" width="281" height="220"/>
+                                <connections>
+                                    <segue destination="33y-2B-wbF" kind="embed" id="ViC-bY-hUb"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -228,6 +234,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0yt-HT-aZJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1927" y="1035"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="qI8-9l-cJv">
+            <objects>
+                <tableViewController id="33y-2B-wbF" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="SH0-X8-Dic">
+                        <rect key="frame" x="0.0" y="0.0" width="281" height="220"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="PPD-1A-Qzi">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="IWL-NI-mk7" style="IBUITableViewCellStyleDefault" id="wUx-rh-8jR">
+                                        <rect key="frame" x="0.0" y="35" width="281" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wUx-rh-8jR" id="bdq-hH-Jbh">
+                                            <rect key="frame" x="0.0" y="0.0" width="248" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Past period dates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IWL-NI-mk7">
+                                                    <rect key="frame" x="15" y="0.0" width="231" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="33y-2B-wbF" id="ckj-sV-YjJ"/>
+                            <outlet property="delegate" destination="33y-2B-wbF" id="veO-kg-JKt"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6ci-YX-Kbe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="990.5" y="1624"/>
         </scene>
     </scenes>
 </document>
