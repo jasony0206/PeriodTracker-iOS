@@ -49,7 +49,7 @@ class ProfileTableViewController: UITableViewController, ChangeMemberDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "DateListSegue") {
-            let detailVC = segue.destinationViewController as! PeriodTableViewController;
+            let detailVC = segue.destinationViewController as! PeriodTableViewController
             detailVC.delegate = self
             detailVC.dates = self.dates
         }
@@ -64,7 +64,9 @@ class ProfileTableViewController: UITableViewController, ChangeMemberDelegate {
             lastPeriodLabel.text = dateToString(lastPeriod)
             
             // Update average cycle
-            if dates.count >= 2 {
+            if dates.count == 1 {
+                avgCycle = 28
+            } else if dates.count >= 2 {
                 var sum = 0
                 for i in 0..<(dates.count - 1) {
                     let cycleLength = dates[i + 1].numberOfDaysUntilDateTime(dates[i])
