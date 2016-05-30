@@ -18,6 +18,7 @@ class ProfileTableViewController: UITableViewController, ChangeMemberDelegate {
     @IBOutlet weak var avgCycleLabel: UILabel!
     @IBOutlet weak var lastPeriodLabel: UILabel!
     @IBOutlet weak var nextPeriodLabel: UILabel!
+    @IBOutlet weak var countdownLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +84,11 @@ class ProfileTableViewController: UITableViewController, ChangeMemberDelegate {
                 toDate: lastPeriod,
                 options: NSCalendarOptions(rawValue: 0))!
             nextPeriodLabel.text = "\(nextPeriod.dayOfWeekStr()) " + dateToString(nextPeriod)
+            
+            // Update countdown
+            let numDaysTillNextPeriod = NSDate().numberOfDaysUntilDateTime(nextPeriod)
+            countdownLabel.text = "\(numDaysTillNextPeriod) days until next period..."
+            print("updated countdown: \(numDaysTillNextPeriod)")
         } else {
             resetData()
         }
@@ -94,6 +100,7 @@ class ProfileTableViewController: UITableViewController, ChangeMemberDelegate {
         lastPeriodLabel.text = "?"
         avgCycleLabel.text = "\(avgCycle) days"
         nextPeriodLabel.text = "?"
+        countdownLabel.text = "? days until next period..."
     }
     
     func updateDates(viewController: PeriodTableViewController, updatedDates: [NSDate]) {
