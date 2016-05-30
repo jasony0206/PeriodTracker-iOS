@@ -52,8 +52,8 @@ class ProfileTableViewController: UITableViewController, ChangeMemberDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "DateListSegue") {
             let detailVC = segue.destinationViewController as! PeriodTableViewController;
-//            detailVC.delegate = self
-//            detailVC.dates = self.dates
+            detailVC.delegate = self
+            detailVC.dates = self.dates
         }
     }
     

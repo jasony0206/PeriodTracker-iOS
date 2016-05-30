@@ -55,9 +55,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P42-vr-Kbk">
                                 <rect key="frame" x="50" y="417" width="121" height="30"/>
                                 <state key="normal" title="Past period dates"/>
-                                <connections>
-                                    <segue destination="PXm-cX-zT9" kind="show" identifier="DateListSegue" id="58K-n0-Zp8"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Next Period" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igt-jJ-jTR">
                                 <rect key="frame" x="50" y="234" width="92" height="21"/>
@@ -200,6 +197,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="PXm-cX-zT9" kind="show" identifier="DateListSegue" id="y98-hO-soq"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Iyw-Z0-ETn">
                                         <rect key="frame" x="0.0" y="339.5" width="600" height="44"/>
@@ -261,7 +261,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6n-oP-DCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2739" y="1814"/>
+            <point key="canvasLocation" x="1933" y="1869"/>
         </scene>
         <!--Add Period-->
         <scene sceneID="nP3-bh-65q">
@@ -384,6 +384,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="WTR-wN-gyd"/>
+        <segue reference="jCg-i1-PAo"/>
     </inferredMetricsTieBreakers>
 </document>
