@@ -31,9 +31,7 @@ class ProfileTableViewController: UITableViewController, ChangeMemberDelegate {
             self.nextPeriod = savedData.nextPeriod
             updateProfile()
         } else {
-            lastPeriodLabel.text = "?"
-            avgCycleLabel.text = "28 days"
-            nextPeriodLabel.text = "?"
+            resetData()
         }
     }
     
@@ -84,13 +82,16 @@ class ProfileTableViewController: UITableViewController, ChangeMemberDelegate {
                 options: NSCalendarOptions(rawValue: 0))!
             nextPeriodLabel.text = dateToString(nextPeriod)
         } else {
-            avgCycle = 28
-            lastPeriodLabel.text = "?"
-            avgCycleLabel.text = "\(avgCycle) days"
-            nextPeriodLabel.text = "?"
-
+            resetData()
         }
         saveData()
+    }
+    
+    func resetData() {
+        avgCycle = 28
+        lastPeriodLabel.text = "?"
+        avgCycleLabel.text = "\(avgCycle) days"
+        nextPeriodLabel.text = "?"
     }
     
     func updateDates(viewController: PeriodTableViewController, updatedDates: [NSDate]) {
