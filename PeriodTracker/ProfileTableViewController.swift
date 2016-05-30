@@ -80,7 +80,7 @@ class ProfileTableViewController: UITableViewController, ChangeMemberDelegate {
                 value: avgCycle,
                 toDate: lastPeriod,
                 options: NSCalendarOptions(rawValue: 0))!
-            nextPeriodLabel.text = dateToString(nextPeriod)
+            nextPeriodLabel.text = "\(nextPeriod.dayOfWeekStr()) " + dateToString(nextPeriod)
         } else {
             resetData()
         }
@@ -121,6 +121,7 @@ class ProfileTableViewController: UITableViewController, ChangeMemberDelegate {
 }
 
 extension NSDate {
+    
     func numberOfDaysUntilDateTime(toDateTime: NSDate, inTimeZone timeZone: NSTimeZone? = nil) -> Int {
         let calendar = NSCalendar.currentCalendar()
         if let timeZone = timeZone {
@@ -134,5 +135,29 @@ extension NSDate {
         
         let difference = calendar.components(.Day, fromDate: fromDate!, toDate: toDate!, options: [])
         return difference.day
+    }
+    
+    func dayOfWeekStr() -> String {
+        let dayOfWeek = self.dayOfWeek()!
+        switch dayOfWeek {
+        case 1: return "Sun"
+        case 2: return "Mon"
+        case 3: return "Tue"
+        case 4: return "Wed"
+        case 5: return "Thu"
+        case 6: return "Fri"
+        case 7: return "Sat"
+        default: return ""
+        }
+    }
+    
+    func dayOfWeek() -> Int? {
+        if
+            let cal: NSCalendar = NSCalendar.currentCalendar(),
+            let comp: NSDateComponents = cal.components(.Weekday, fromDate: self) {
+                return comp.weekday
+        } else {
+            return nil
+        }
     }
 }
