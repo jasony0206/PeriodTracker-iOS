@@ -12,7 +12,6 @@
 		587C082B1CFBE7B200F5BBEA /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587C082A1CFBE7B200F5BBEA /* ProfileTableViewController.swift */; };
 		5892E27B1CF63EE900200DBA /* AddPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5892E27A1CF63EE900200DBA /* AddPeriodViewController.swift */; };
 		58DF71D11CF39D11004FEB19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DF71D01CF39D11004FEB19 /* AppDelegate.swift */; };
-		58DF71D31CF39D11004FEB19 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DF71D21CF39D11004FEB19 /* ProfileViewController.swift */; };
 		58DF71D61CF39D11004FEB19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58DF71D41CF39D11004FEB19 /* Main.storyboard */; };
 		58DF71D81CF39D11004FEB19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58DF71D71CF39D11004FEB19 /* Assets.xcassets */; };
 		58DF71DB1CF39D11004FEB19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58DF71D91CF39D11004FEB19 /* LaunchScreen.storyboard */; };
@@ -36,7 +35,6 @@
 		5892E27A1CF63EE900200DBA /* AddPeriodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPeriodViewController.swift; sourceTree = "<group>"; };
 		58DF71CD1CF39D11004FEB19 /* PeriodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeriodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58DF71D01CF39D11004FEB19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		58DF71D21CF39D11004FEB19 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		58DF71D51CF39D11004FEB19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		58DF71D71CF39D11004FEB19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58DF71DA1CF39D11004FEB19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				58DF71D01CF39D11004FEB19 /* AppDelegate.swift */,
-				58DF71D21CF39D11004FEB19 /* ProfileViewController.swift */,
 				587C082A1CFBE7B200F5BBEA /* ProfileTableViewController.swift */,
 				5892E27A1CF63EE900200DBA /* AddPeriodViewController.swift */,
 				583F47131CF6A48400BC95EF /* PeriodTableViewController.swift */,
@@ -211,7 +208,6 @@
 			files = (
 				587C082B1CFBE7B200F5BBEA /* ProfileTableViewController.swift in Sources */,
 				583F47141CF6A48400BC95EF /* PeriodTableViewController.swift in Sources */,
-				58DF71D31CF39D11004FEB19 /* ProfileViewController.swift in Sources */,
 				5892E27B1CF63EE900200DBA /* AddPeriodViewController.swift in Sources */,
 				5803ED731CF7C6C8004ADCF0 /* ArchivePeriodData.swift in Sources */,
 				58DF71D11CF39D11004FEB19 /* AppDelegate.swift in Sources */,

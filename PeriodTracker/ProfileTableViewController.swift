@@ -66,7 +66,6 @@ class ProfileTableViewController: UITableViewController, ChangeMemberDelegate {
             lastPeriodLabel.text = dateToString(lastPeriod)
             
             // Update average cycle
-            //var avgCycleLength = 28
             if dates.count >= 2 {
                 var sum = 0
                 for i in 0..<(dates.count - 1) {
@@ -85,9 +84,11 @@ class ProfileTableViewController: UITableViewController, ChangeMemberDelegate {
                 options: NSCalendarOptions(rawValue: 0))!
             nextPeriodLabel.text = dateToString(nextPeriod)
         } else {
+            avgCycle = 28
             lastPeriodLabel.text = "?"
-            avgCycleLabel.text = "28 days"
+            avgCycleLabel.text = "\(avgCycle) days"
             nextPeriodLabel.text = "?"
+
         }
         saveData()
     }
