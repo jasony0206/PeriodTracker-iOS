@@ -65,15 +65,15 @@ class ProfileTableViewController: UITableViewController, ChangeMemberDelegate {
             lastPeriodLabel.text = dateToString(lastPeriod)
             
             // Update average cycle
-            if dates.count == 1 {
-                avgCycle = 28
-            } else if dates.count >= 2 {
+            if dates.count >= 2 {
                 var sum = 0
                 for i in 0..<(dates.count - 1) {
                     let cycleLength = dates[i + 1].numberOfDaysUntilDateTime(dates[i])
                     sum += cycleLength
                 }
                 avgCycle = sum / (dates.count - 1)
+            } else {
+                avgCycle = 28
             }
             avgCycleLabel.text = "\(avgCycle) days"
             
@@ -88,7 +88,6 @@ class ProfileTableViewController: UITableViewController, ChangeMemberDelegate {
             // Update countdown
             let numDaysTillNextPeriod = NSDate().numberOfDaysUntilDateTime(nextPeriod)
             countdownLabel.text = "\(numDaysTillNextPeriod) days until next period..."
-            print("updated countdown: \(numDaysTillNextPeriod)")
         } else {
             resetData()
         }
